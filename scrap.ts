@@ -16,9 +16,9 @@ export async function scrapAudio(piafObj: piafObj) {
   await Deno.writeFile(tmpJSpath, await blob.arrayBuffer());
   const encoder = new TextEncoder();
   const data = encoder.encode("export { On_mp3, On_oga }");
-  await Deno.writeFile(tmpJSpath, data, { append: true });
+  Deno.writeFileSync(tmpJSpath, data, { append: true });
   const audioUrl = await import(tmpJSpath);
-  await Deno.remove(tmpJSpath);
+  Deno.removeSync(tmpJSpath);
   console.log(bold(green("Done ->")), piafObj.name);
   return audioUrl;
 }
