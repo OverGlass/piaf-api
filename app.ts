@@ -1,4 +1,4 @@
-import { Application, Context } from "./deps.ts";
+import { Application } from "./deps.ts";
 import { bold, green } from "https://deno.land/std@0.51.0/fmt/colors.ts";
 import router from "./router.ts";
 
